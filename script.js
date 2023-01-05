@@ -40,5 +40,8 @@ Pick the simplest one above: create div reference.
 */
 const container = document.querySelector('div');
 const div = document.createElement('div');
+div.className = 'giga';
 
-container.appendChild(div);
+for(let i = 0; i < 16; i++){
+  container.appendChild(div.cloneNode(true));
+}
