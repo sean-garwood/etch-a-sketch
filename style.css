@@ -6,12 +6,11 @@ html, body {
 
 #container {
   display: grid;
-  grid-template-columns: repeat(16, 1fr); 
-  grid-template-rows: repeat(16, 1fr);
+  grid-template-columns: repeat(16, 10px); 
+  grid-template-rows: repeat(16, 10px);
 }
 
 .item {
   width: 10px;
-  height: 20px;
-
+  height: 10px;
 }
