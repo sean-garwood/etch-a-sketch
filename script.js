@@ -41,7 +41,6 @@ Pick the simplest one above: create div reference.
 const container = document.querySelector('div');
 const div = document.createElement('div');
 div.className = 'item';
-div.textContent = 'hi';
 
 for(let i = 0; i < 256; i++){
   container.appendChild(div.cloneNode(true));
