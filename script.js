@@ -10,6 +10,8 @@ leaves a div.
 
 This can be done when the mouse hovers over a cell, or when it leaves a div (or
 both?)
+
+First, I need to be able to pick out a cell
  
 pseudocode
 
@@ -19,6 +21,5 @@ const div = document.createElement('div');
 div.className = 'item';
 
 for(let i = 0; i < 256; i++){
-  div.textContent = `${i+1}`;
   container.appendChild(div.cloneNode(true));
 }
