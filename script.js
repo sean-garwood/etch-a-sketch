@@ -38,7 +38,7 @@ link appropriate classes to these newly-created divs (i.e. container, square)
 Pick the simplest one above: create div reference.
 
 */
-const container = document.querySelector('div');
+const container = document.getElementById('container');
 const div = document.createElement('div');
 div.className = 'item';
 
