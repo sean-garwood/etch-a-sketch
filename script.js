@@ -13,9 +13,6 @@ a good starting limit for the absolute size of the grid is 960px.
 
 #plan
 
-add an event listener to the button element that will run an arrow function that
-returns a prompt.
-
 Store the value from the prompt into a gridSize variable.
 
 
@@ -29,7 +26,13 @@ function setGridSize() {
   if (gridSize % 1 !== 0 || gridSize < 1 || gridSize > 100 ) {
     return setGridSize();
   }
+  removeGridItems();
   return gridSize;
+}
+
+function removeGridItems() {
+  let items = Array.from(document.getElementsByClassName('item'));
+  items.forEach(item => item.remove());
 }
 
 const button = document.querySelector('button');
