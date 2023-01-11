@@ -23,3 +23,10 @@ div.className = 'item';
 for(let i = 0; i < 256; i++){
   container.appendChild(div.cloneNode(true));
 }
+
+const items = Array.from(document.getElementsByClassName('item'));
+items.forEach(item => {
+  item.addEventListener('mouseover', e => {
+    item.setAttribute('style', 'background-color: yellow;')
+  });
+});
