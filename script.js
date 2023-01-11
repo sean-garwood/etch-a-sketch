@@ -13,6 +13,10 @@ a good starting limit for the absolute size of the grid is 960px.
 #plan
 
 Store the value from the prompt into a gridSize variable.
+check if gridSize is an int between 1 and 100.
+  if not, start over
+clear old grid items
+pass gridSize to CSS sheet
 
 
 
