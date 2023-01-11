@@ -1,18 +1,28 @@
 /* problem
-set up a hover event listener so grid divs change color when mouse passes over
-them.
 
-This should leave a trail through the grid, like a pen would.
+Add a button to the top of the screen that, when pressed, prompts the user for
+the number of squares per side for the grid. Limit this prompt to be in the
+range of 1-100, inclusive.
+
+Once the prompt is complete, the old grid should be removed, and replaced with
+the new grid in the same total space as before. (Currently, the grid is not
+limited in size.)
+
+a good starting limit for the absolute size of the grid is 960px.
 
 plan
-I need ot set up event listener for when a mouse enters a div, and/or when it
-leaves a div.
 
-This can be done when the mouse hovers over a cell, or when it leaves a div (or
-both?)
+Set the absolute size of the grid in the stylesheet.
 
-First, I need to be able to pick out a cell
- 
+add a button element to the top of the document.
+
+add an event listener to the button element that will run an arrow function that
+returns a prompt.
+
+Store the value from the prompt into a gridSize variable.
+
+
+
 pseudocode
 
 */
