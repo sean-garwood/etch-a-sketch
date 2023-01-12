@@ -30,7 +30,18 @@ function setGridSize() {
     return setGridSize();
   }
   removeGridItems();
-  //now I just need to figure out how to pass the grid size to the css sheet
+  //build the grid
+
+  const container = document.getElementById('container');
+  for(let i = 0; i < gridSize ** 2; i++){
+    container.appendChild(div.cloneNode(true));
+  }
+  const items = Array.from(document.getElementsByClassName('item'));
+  items.forEach(item => {
+    item.addEventListener('mouseover', e => {
+      item.setAttribute('style', 'background-color: yellow;')
+    });
+  });
 }
 
 function removeGridItems() {
@@ -41,18 +52,8 @@ function removeGridItems() {
 const button = document.querySelector('button');
 button.addEventListener('click', setGridSize);
   
-const container = document.getElementById('container');
 const div = document.createElement('div');
 div.className = 'item';
 
 //this loop needs to be edited to be dynamic
-for(let i = 0; i < 256; i++){
-  container.appendChild(div.cloneNode(true));
-}
 
-const items = Array.from(document.getElementsByClassName('item'));
-items.forEach(item => {
-  item.addEventListener('mouseover', e => {
-    item.setAttribute('style', 'background-color: yellow;')
-  });
-});
