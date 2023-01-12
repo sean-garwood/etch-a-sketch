@@ -3,4 +3,5 @@ Etch-a-sketch project form The Odin Project web development course.
 
 # todo
 
-draw a dynamically defined grid according to user prompt.
+Extra Credit:
+  Instead of just changing the color of a square from black to white (for example), have each pass through with the mouse change it to a completely random RGB value. Then try having each pass just add another 10% of black to it so that only after 10 passes is the square completely black.
