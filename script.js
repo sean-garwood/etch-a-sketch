@@ -37,14 +37,16 @@ function colorInDivs() {
   const items = Array.from(document.getElementsByClassName('item'));
   items.forEach(item => {
     item.addEventListener('mouseover', e => {
-      item.setAttribute('style', 'background-color: yellow;')
+      item.setAttribute('style', 'background-color: gray;')
     });
   });
 }
 
 function buildGrid(gridSize) {
   const container = document.getElementById('container');
+  container.setAttribute('style', `grid-template-columns: repeat(${gridSize}, 1fr); grid-template-rows: repeat(${gridSize}, 1fr);`);
   for(let i = 0; i < gridSize ** 2; i++){
+    div.setAttribute('style', `height: ${gridSize}fr; width: ${gridSize}fr;`)
     container.appendChild(div.cloneNode(true));
   }
 }
