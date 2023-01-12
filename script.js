@@ -24,11 +24,7 @@ function setGridSize() {
     return setGridSize();
   }
   removeGridItems();
-  //build the grid
-  const container = document.getElementById('container');
-  for(let i = 0; i < gridSize ** 2; i++){
-    container.appendChild(div.cloneNode(true));
-  }
+  buildGrid(gridSize);
   colorInDivs();
 }
 
@@ -44,6 +40,13 @@ function colorInDivs() {
       item.setAttribute('style', 'background-color: yellow;')
     });
   });
+}
+
+function buildGrid(gridSize) {
+  const container = document.getElementById('container');
+  for(let i = 0; i < gridSize ** 2; i++){
+    container.appendChild(div.cloneNode(true));
+  }
 }
 
 const button = document.querySelector('button');
