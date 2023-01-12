@@ -31,7 +31,6 @@ function setGridSize() {
   }
   removeGridItems();
   //build the grid
-
   const container = document.getElementById('container');
   for(let i = 0; i < gridSize ** 2; i++){
     container.appendChild(div.cloneNode(true));
@@ -54,6 +53,3 @@ button.addEventListener('click', setGridSize);
   
 const div = document.createElement('div');
 div.className = 'item';
-
-//this loop needs to be edited to be dynamic
-
