@@ -24,14 +24,13 @@ pass gridSize to CSS sheet
 
 */
 
-function setGridSize(container) {
+function setGridSize() {
   let gridSize = prompt('Set the grid size to an integer between 1 and 100');
   if (gridSize % 1 !== 0 || gridSize < 1 || gridSize > 100 ) {
     return setGridSize();
   }
   removeGridItems();
   //now I just need to figure out how to pass the grid size to the css sheet
-  
 }
 
 function removeGridItems() {
@@ -46,12 +45,10 @@ const container = document.getElementById('container');
 const div = document.createElement('div');
 div.className = 'item';
 
-/*
-this loop needs to be edited to be dynamic
+//this loop needs to be edited to be dynamic
 for(let i = 0; i < 256; i++){
   container.appendChild(div.cloneNode(true));
 }
-*/
 
 const items = Array.from(document.getElementsByClassName('item'));
 items.forEach(item => {
