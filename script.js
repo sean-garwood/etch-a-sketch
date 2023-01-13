@@ -8,6 +8,9 @@ separate interests: write a named function getOpacity(gridSize) that creates an
 array-like object that contains [0.1, 0.2, 0.3, ... 1.0, 0.1, ...], with the
 number of elements equal to gridSize.
 
+call getOpacity in eventlistener contained in colorInDivsGrayscale, set opacity
+to that value
+
 pseudocode
 
 */
@@ -36,8 +39,15 @@ function colorInDivsRandom() {
   });
 }
 
-function colorInDivsGrayscale() {
-  //figuring out algorithm
+function colorInDivsGrayscale(gridSize) {
+  const items = Array.from(document.getElementsByClassName('item'));
+  items.forEach(item => {
+    item.addEventListener('mouseover', e => {
+      for (let i = 0; i < 10; i++) {
+        item.setAttribute('style', `background-color: black; opacity: ${opacityArray[i]};`);
+      }
+    });
+  });
 }
 
 function buildGrid(gridSize) {
@@ -69,7 +79,6 @@ function setGridSizeRandom() {
   colorInDivsRandom();
 }
 
-/*
 function setGridSizeGrayscale() {
   let gridSize = prompt('Set the grid size to an integer between 1 and 100');
   if (gridSize % 1 !== 0 || gridSize < 1 || gridSize > 100 ) {
@@ -77,9 +86,8 @@ function setGridSizeGrayscale() {
   }
   removeGridItems();
   buildGrid(gridSize);
-  colorInDivsGrayscale();
+  colorInDivsGrayscale(gridSize);
 }
-*/
 
 const blackButton = document.getElementById('black');
 blackButton.addEventListener('click', setGridSizeBlack);
@@ -87,10 +95,13 @@ blackButton.addEventListener('click', setGridSizeBlack);
 const randomButton = document.getElementById('random');
 randomButton.addEventListener('click', setGridSizeRandom);
 
-/*
 const grayscaleButton = document.getElementById('grayscale');
 grayscaleButton.addEventListener('click', setGridSizeGrayscale);
-*/
 
 const div = document.createElement('div');
 div.className = 'item';
+
+const opacityArray = [
+  0.1, 0.2, 0.3, 0.4, 0.5,
+  0.6, 0.7, 0.8, 0.9, 1
+];
