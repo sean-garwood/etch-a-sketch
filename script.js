@@ -1,3 +1,16 @@
+/*
+problem
+Whenever the cursor passes through a pixel div, change its background-color
+attribute to be a random rgb value.
+
+plan
+rewrite the colorInDivs function so that it returns a random RGB value rather
+than gray.
+
+
+*/
+
+
 function removeGridItems() {
   let gridItems = Array.from(document.getElementsByClassName('item'));
   gridItems.forEach(gridItem => gridItem.remove());
@@ -7,7 +20,7 @@ function colorInDivs() {
   const items = Array.from(document.getElementsByClassName('item'));
   items.forEach(item => {
     item.addEventListener('mouseover', e => {
-      item.setAttribute('style', 'background-color: gray;')
+      item.setAttribute('style', `background-color: rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)});`)
     });
   });
 }
