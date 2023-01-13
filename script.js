@@ -4,9 +4,11 @@ Whenever the cursor passes through the first pixel, set its opacity to 10%
 (0.1). The next pixel should have an opacity of 0.2, then 0.3 ... 1.0, then 0.1.
 
 plan
-rewrite the colorInDivs function so that it returns a random RGB value rather
-than gray.
+separate interests: write a named function getOpacity(gridSize) that creates an
+array-like object that contains [0.1, 0.2, 0.3, ... 1.0, 0.1, ...], with the
+number of elements equal to gridSize.
 
+pseudocode
 
 */
 
@@ -35,15 +37,7 @@ function colorInDivsRandom() {
 }
 
 function colorInDivsGrayscale() {
-  const items = Array.from(document.getElementsByClassName('item'));
-  items.forEach(item => {
-    for (let i; i <= 1; i += 0.1) {
-      opacity = i;
-      item.addEventListener('mouseover', e => {
-        item.setAttribute('style', `background-color: black; opacity: ${opacity};`);
-      });
-    };
-  });
+  //figuring out algorithm
 }
 
 function buildGrid(gridSize) {
@@ -75,6 +69,7 @@ function setGridSizeRandom() {
   colorInDivsRandom();
 }
 
+/*
 function setGridSizeGrayscale() {
   let gridSize = prompt('Set the grid size to an integer between 1 and 100');
   if (gridSize % 1 !== 0 || gridSize < 1 || gridSize > 100 ) {
@@ -84,15 +79,18 @@ function setGridSizeGrayscale() {
   buildGrid(gridSize);
   colorInDivsGrayscale();
 }
+*/
 
 const blackButton = document.getElementById('black');
 blackButton.addEventListener('click', setGridSizeBlack);
 
 const randomButton = document.getElementById('random');
 randomButton.addEventListener('click', setGridSizeRandom);
-  
+
+/*
 const grayscaleButton = document.getElementById('grayscale');
 grayscaleButton.addEventListener('click', setGridSizeGrayscale);
+*/
 
 const div = document.createElement('div');
 div.className = 'item';
