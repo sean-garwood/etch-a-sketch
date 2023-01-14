@@ -3,8 +3,12 @@ function removeGridItems() {
   gridItems.forEach(gridItem => gridItem.remove());
 }
 
+function getItems() {
+  return Array.from(document.getElementsByClassName('item'));
+}
+
 function colorInDivsBlack() {
-  const items = Array.from(document.getElementsByClassName('item'));
+  items = getItems();
   items.forEach(item => {
     item.addEventListener('mouseover', e => {
       item.setAttribute('style', 'background-color: black;');
@@ -13,7 +17,7 @@ function colorInDivsBlack() {
 }
 
 function colorInDivsRandom() {
-  const items = Array.from(document.getElementsByClassName('item'));
+  items = getItems();
   items.forEach(item => {
     item.addEventListener('mouseover', e => {
       item.setAttribute('style', `background-color: rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)});`);
@@ -24,7 +28,7 @@ function colorInDivsRandom() {
 //unfortunately sets opacity as it builds the grid basically, so the first div
 //in the grid has 0.1 opacity, etc.
 function colorInDivsGrayscale(gridSize) {
-  const items = Array.from(document.getElementsByClassName('item'));
+  items = getItems();
   items.forEach(item => {
     item.addEventListener('mouseover', e => {
       let opacity = opacityArray[opacityArrayIndex];
