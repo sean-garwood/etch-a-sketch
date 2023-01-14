@@ -1,21 +1,3 @@
-/*
-problem
-Whenever the cursor passes through the first pixel, set its opacity to 10%
-(0.1). The next pixel should have an opacity of 0.2, then 0.3 ... 1.0, then 0.1.
-
-plan
-separate interests: write a named function getOpacity(gridSize) that creates an
-array-like object that contains [0.1, 0.2, 0.3, ... 1.0, 0.1, ...], with the
-number of elements equal to gridSize.
-
-call getOpacity in eventlistener contained in colorInDivsGrayscale, set opacity
-to that value
-
-pseudocode
-
-*/
-
-
 function removeGridItems() {
   let gridItems = Array.from(document.getElementsByClassName('item'));
   gridItems.forEach(gridItem => gridItem.remove());
@@ -39,14 +21,20 @@ function colorInDivsRandom() {
   });
 }
 
+//unfortunately sets opacity as it builds the grid basically, so the first div
+//in the grid has 0.1 opacity, etc.
 function colorInDivsGrayscale(gridSize) {
   const items = Array.from(document.getElementsByClassName('item'));
+  let i = 0;
   items.forEach(item => {
+    let opacity = opacityArray[i];
     item.addEventListener('mouseover', e => {
-      for (let i = 0; i < 10; i++) {
-        item.setAttribute('style', `background-color: black; opacity: ${opacityArray[i]};`);
-      }
+      item.setAttribute('style', `background-color: black; opacity: ${opacity};`);
     });
+    i++;
+    if (i === 10) {
+      i = 0;
+    }
   });
 }
 
