@@ -25,16 +25,15 @@ function colorInDivsRandom() {
 //in the grid has 0.1 opacity, etc.
 function colorInDivsGrayscale(gridSize) {
   const items = Array.from(document.getElementsByClassName('item'));
-  let i = 0;
   items.forEach(item => {
-    let opacity = opacityArray[i];
     item.addEventListener('mouseover', e => {
+      let opacity = opacityArray[opacityArrayIndex];
+      opacityArrayIndex++;
+      if (opacityArrayIndex === 10) {
+        opacityArrayIndex = 0;
+    }
       item.setAttribute('style', `background-color: black; opacity: ${opacity};`);
     });
-    i++;
-    if (i === 10) {
-      i = 0;
-    }
   });
 }
 
@@ -93,3 +92,5 @@ const opacityArray = [
   0.1, 0.2, 0.3, 0.4, 0.5,
   0.6, 0.7, 0.8, 0.9, 1
 ];
+
+let opacityArrayIndex = 0;
